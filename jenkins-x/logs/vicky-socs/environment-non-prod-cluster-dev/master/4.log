@@ -1,0 +1,231 @@
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-credential-initializer-msb7z[0m
+{"level":"warn","ts":1584531112.8519328,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584531112.8522313,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-s2pzv[0m
+{"level":"warn","ts":1584531113.8697774,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1584531113.8712819,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-git-source-vicky-socs-environment-non-prod-8qxq9-g6rgj[0m
+{"level":"warn","ts":1584531124.1334536,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584531126.2927613,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/vicky-socs/environment-non-prod-cluster-dev.git @ v0.0.4 in path /workspace/source"}
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:e34a41872cdefb093d4b25d47f633fd8e27cad5e
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+writing the following to the OWNERS file for the development environment repository:
+approvers:
+- ********
+reviewers:
+- ********
+WARNING: TLS is not enabled so your webhooks will be called using HTTP. This means your webhook secret will be sent to your cluster in the clear. See https://jenkins-x.io/docs/getting-started/setup/boot/#ingress for more information
+Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
+Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
+Verifying Ingress...
+Clearing the domain 3.6.244.161.nip.io as when using auto-DNS domains we need to regenerate to ensure its always accurate in case the cluster or ingress service is recreated
+
+Using namespace '**' from context named '' on server ''.
+
+Verifying the CLI packages using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+using version 2.0.1244 of **
+CLI packages kubectl, git, helm seem to be setup correctly
+NAME               VERSION
+**                 2.0.1244
+Kubernetes cluster v1.14.9-eks-502bfb
+kubectl            v1.16.0
+helm client        2.14.3
+git                2.21.1
+
+Verifying Storage...
+WARNING: Your requirements have not enabled cloud storage for logs - we recommend enabling this for kubernetes provider eks
+WARNING: Your requirements have not enabled cloud storage for reports - we recommend enabling this for kubernetes provider eks
+WARNING: Your requirements have not enabled cloud storage for repository - we recommend enabling this for kubernetes provider eks
+WARNING: Your requirements have not enabled cloud storage for backup - we recommend enabling this for kubernetes provider eks
+Storage configuration looks good
+
+Helm installed and configured
+Ensuring Helm chart repository https://storage.googleapis.com/chartmuseum.jenkins-x.io is configured
+Running in cluster, not recreating permissions
+Cluster looks good, you are ready to '** boot' now!
+
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
+Modified file /workspace/source/systems/velero/Chart.yaml to set the chart to version 4
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
+Modified file /workspace/source/systems/velero-backups/Chart.yaml to set the chart to version 4
+Ignoring templates/default-backup.yaml
+No requirements file: /tmp/**-helm-apply-660012126/velero-backups/requirements.yaml so not checking for missing versions
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
+Modified file /workspace/source/systems/**ing/Chart.yaml to set the chart to version 4
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+The Ingress address a97a9717568e411eaad0006b2c3b7503-748eb90623069fc2.elb.ap-south-1.amazonaws.com is not an IP address. We recommend we try resolve it to a public IP address and use that for the domain to access services externally.
+Waiting for a97a9717568e411eaad0006b2c3b7503-748eb90623069fc2.elb.ap-south-1.amazonaws.com to be resolvable to an IP address...
+a97a9717568e411eaad0006b2c3b7503-748eb90623069fc2.elb.ap-south-1.amazonaws.com resolved to IP 3.6.244.161
+No domain flag provided so using default 3.6.244.161.nip.io to generate Ingress rules
+defaulting the domain to 3.6.244.161.nip.io and modified /workspace/source/**-requirements.yml
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-external-dns[0m
+Modified file /workspace/source/systems/external-dns/Chart.yaml to set the chart to version 4
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+Adding missing Helm repo: charts.bitnami.com https://charts.bitnami.com/bitnami
+Successfully added Helm repository charts.bitnami.com.
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-cert-manager-crds[0m
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io configured
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-cert-manager[0m
+Modified file /workspace/source/systems/cm/Chart.yaml to set the chart to version 4
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+Adding missing Helm repo: charts.jetstack.io https://charts.jetstack.io
+Successfully added Helm repository charts.jetstack.io.
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-acme-issuer-and-certificate[0m
+Modified file /workspace/source/systems/acme/Chart.yaml to set the chart to version 4
+Ignoring templates/cert-manager-prod-certificate.yaml
+Ignoring templates/cert-manager-prod-issuer.yaml
+Ignoring templates/cert-manager-staging-certificate.yaml
+Ignoring templates/cert-manager-staging-issuer.yaml
+No requirements file: /tmp/**-helm-apply-832737356/acme/requirements.yaml so not checking for missing versions
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-vault[0m
+Not attempting to boot Vault as using secret storage: local
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-create-helm-values[0m
+defaulting to secret storage scheme local found from requirements file at /workspace/source/**-requirements.yml
+defaulting to secret base path to the cluster name non-prod-cluster found from requirements file at /workspace/source/**-requirements.yml
+generated schema file /workspace/source/env/parameters.schema.json from template /workspace/source/env/parameters.tmpl.schema.json
+Jenkins X Admin Username ***** [Automatically accepted existing value]
+Jenkins X Admin Password *** [Automatically accepted existing value]
+Pipeline bot Git username ******** [Automatically accepted existing value]
+Pipeline bot Git email address vicky@squareops.com  [Automatically accepted existing value]
+Pipeline bot Git token *** [Automatically accepted existing value]
+HMAC token, used to validate incoming webhooks. Press enter to use the generated token *** [Automatically accepted existing value]
+Do you want to configure an external Docker Registry? false [Automatically accepted existing value]
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-create-jx-auth-config[0m
+Saved the rendered configuration into templates/**-auth-configmap.yaml file
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-jx-auth-config[0m
+Modified file /workspace/source/systems/**-auth/Chart.yaml to set the chart to version 4
+Ignoring templates/**-auth-configmap.yaml
+No requirements file: /tmp/**-helm-apply-404118894/**-auth/requirements.yaml so not checking for missing versions
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-jenkins-x[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 4
+Ignoring templates/.gitignore
+Applying the kubernetes overrides at ../kubeProviders/eks/values.tmpl.yaml
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.398
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-verify-jenkins-x-environment[0m
+Storing the requirements in team settings in the dev environment
+Validating git repository for dev environment at URL https://github.com/vicky-socs/environment-non-prod-cluster-dev.git
+Validating git repository for production environment at URL https://github.com/vicky-socs/environment-non-prod-cluster-production.git
+Using Git provider github at https://github.com
+? Using Git user name: ********
+? Using organisation: vicky-socs
+Creating repository vicky-socs/environment-non-prod-cluster-production
+Git repository vicky-socs/environment-non-prod-cluster-production already exists
+Pushed Git repository to https://github.com/vicky-socs/environment-non-prod-cluster-production
+
+Validating git repository for staging environment at URL https://github.com/vicky-socs/environment-non-prod-cluster-staging.git
+Using Git provider github at https://github.com
+? Using Git user name: ********
+? Using organisation: vicky-socs
+Creating repository vicky-socs/environment-non-prod-cluster-staging
+Git repository vicky-socs/environment-non-prod-cluster-staging already exists
+Pushed Git repository to https://github.com/vicky-socs/environment-non-prod-cluster-staging
+
+Environment git repositories look good
+
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-repositories[0m
+Modified file /workspace/source/repositories/Chart.yaml to set the chart to version 4
+Ignoring templates/default-group.yaml
+Ignoring templates/vicky-socs-test-python-jenkinsx-sr.yaml
+No requirements file: /tmp/**-helm-apply-049934786/repositories/requirements.yaml so not checking for missing versions
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-install-pipelines[0m
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-update-webhooks[0m
+DEBUG: Finding service url for hook in namespace **
+DEBUG: Couldn't find service url, attempting to look up via ingress
+DEBUG: found service url http://hook-**.3.6.244.161.nip.io
+Updating webhooks for Owner: vicky-socs and Repository: environment-non-prod-cluster-dev in git server: https://github.com
+Checking hooks for repository vicky-socs/environment-non-prod-cluster-dev with user ********
+Found matching hook for url http://hook-**.3.6.244.161.nip.io/hook
+Updating GitHub webhook for vicky-socs/environment-non-prod-cluster-dev for url http://hook-**.3.6.244.161.nip.io/hook
+Updating webhooks for Owner: vicky-socs and Repository: environment-non-prod-cluster-production in git server: https://github.com
+Checking hooks for repository vicky-socs/environment-non-prod-cluster-production with user ********
+Found matching hook for url http://hook-**.3.6.244.161.nip.io/hook
+Updating GitHub webhook for vicky-socs/environment-non-prod-cluster-production for url http://hook-**.3.6.244.161.nip.io/hook
+Updating webhooks for Owner: vicky-socs and Repository: environment-non-prod-cluster-staging in git server: https://github.com
+Checking hooks for repository vicky-socs/environment-non-prod-cluster-staging with user ********
+Found matching hook for url http://hook-**.3.6.244.161.nip.io/hook
+Updating GitHub webhook for vicky-socs/environment-non-prod-cluster-staging for url http://hook-**.3.6.244.161.nip.io/hook
+Updating webhooks for Owner: vicky-socs and Repository: test-python-jenkinsx in git server: https://github.com
+Checking hooks for repository vicky-socs/test-python-jenkinsx with user ********
+Found matching hook for url http://hook-**.3.6.244.161.nip.io/hook
+Updating GitHub webhook for vicky-socs/test-python-jenkinsx for url http://hook-**.3.6.244.161.nip.io/hook
+
+Showing logs for build [32mvicky-socs-environment-non-prod-8qxq9-4[0m stage [32mrelease[0m and container [32mstep-verify-installation[0m
+verifying the Jenkins X installation in namespace **
+verifying pods
+Checking pod statuses
+POD                                          STATUS
+crier-6c4944b868-74kgf                       Running
+deck-7f5c64b45d-fsl29                        Running
+deck-7f5c64b45d-z8r8c                        Running
+hook-647f968ffb-9t7nx                        Running
+hook-647f968ffb-dr8c2                        Running
+horologium-9fdcd6b57-9glp4                   Running
+jenkins-x-chartmuseum-d87cbb789-9jk25        Running
+jenkins-x-controllerbuild-9d767775f-tlnfh    Running
+jenkins-x-controllerrole-599cf9cccf-bxxns    Running
+jenkins-x-gcactivities-1584527400-lctq5      Succeeded
+jenkins-x-gcactivities-1584529200-9rfwn      Succeeded
+jenkins-x-gcactivities-1584531000-d7dn4      Succeeded
+jenkins-x-gcpods-1584527400-l7rzb            Succeeded
+jenkins-x-gcpods-1584529200-lmp5b            Succeeded
+jenkins-x-gcpods-1584531000-54r9f            Succeeded
+jenkins-x-heapster-7c5f5f64d8-bqsx7          Running
+jenkins-x-nexus-8b8dfd746-rhrnr              Running
+pipeline-7dff794486-5fp69                    Running
+pipelinerunner-76ff4d6f86-g7bpf              Running
+tekton-pipelines-controller-666488cbd5-wl5nm Running
+tide-6bcf8f9f7f-sfp4v                        Running
+Verifying the git config
+Verifying username ******** at git server github at https://github.com
+Found 2 organisations in git server https://github.com: vicky-socs, zylahealth
+Validated pipeline user ******** on git server https://github.com
+Git tokens seem to be setup correctly
+Installation is currently looking: GOOD
